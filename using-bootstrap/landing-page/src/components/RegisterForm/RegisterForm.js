@@ -42,88 +42,92 @@ const RegisterForm = (props) => (
                         </fieldset>
 
                         <hr className='my-2'/>
-                            <h5 className='mb-2'>Which Topics Interest You Most?</h5>
+                        <h5 className='mb-2'>Which Topics Interest You Most?</h5>
 
-                            <div className='form-group c-inputs-stacked'>
-                                <label className='c-input c-checkbox'>
-                                    <input type='checkbox'/>
-                                    <span className='c-indicator'></span>
-                                    JavaScript Frameworks
-                                </label>
-                                <label className='c-input c-checkbox'>
-                                    <input type='checkbox'/>
-                                    <span className='c-indicator'></span>
-                                    JavaScript Libraries
-                                </label>
-                                <label className='c-input c-checkbox'>
-                                    <input type='checkbox'/>
-                                    <span className='c-indicator'></span>
-                                    Node.js
-                                </label>
-                                <label className='c-input c-checkbox'>
-                                    <input type='checkbox'/>
-                                    <span className='c-indicator'></span>
-                                    Build Tools
-                                </label>
-                                <label className='c-input c-checkbox'>
-                                    <input type='checkbox'/>
-                                    <span className='c-indicator'></span>
-                                    ES2015
-                                </label>
+                        <div className='form-check'>
+                            <input className="form-check-input" type="checkbox" value="" id="1"/>
+                            <label className="form-check-label" htmlFor="1">
+                                JavaScript Frameworks
+                            </label>
+                        </div>
+                        <div className='form-check'>
+                            <input className="form-check-input" type="checkbox" value="" id="2"/>
+                            <label className="form-check-label" htmlFor="2">
+                                JavaScript Libraries
+                            </label>
+                        </div>
+                        <div className='form-check'>
+                            <input className="form-check-input" type="checkbox" value="" id="3"/>
+                            <label className="form-check-label" htmlFor="3">
+                                Node.js
+                            </label>
+                        </div>
+                        <div className='form-check'>
+                            <input className="form-check-input" type="checkbox" value="" id="4"/>
+                            <label className="form-check-label" htmlFor="4">
+                                Build Tools
+                            </label>
+                        </div>
+                        <div className='form-check'>
+                            <input className="form-check-input" type="checkbox" value=""
+                                   id="5"/>
+                            <label className="form-check-label" htmlFor="5">
+                                ES2015
+                            </label>
+                        </div>
+
+                        <hr className='mb-2'/>
+                        <h5 className='mb-2'>Payment Info</h5>
+
+                        <div className='row'>
+                            <div className='col-lg-6 form-group has-success'>
+                                <label className='form-control-label pl-0' htmlFor='cc-num'>Card Number:</label>
+                                <input className='form-control form-control-success' id='cc-num' type='text'/>
                             </div>
 
-                            <hr className='mb-2'/>
-                                <h5 className='mb-2'>Payment Info</h5>
+                            <div className='col-lg-3 form-group'>
+                                <label htmlFor='zip'>Zip Code:</label>
+                                <input className='form-control' id='zip' type='text'/>
+                            </div>
 
-                                <div className='row'>
-                                    <div className='col-lg-6 form-group has-success'>
-                                        <label className='form-control-label pl-0' htmlFor='cc-num'>Card Number:</label>
-                                        <input className='form-control form-control-success' id='cc-num' type='text'/>
-                                    </div>
+                            <div className='col-lg-3 form-group'>
+                                <label htmlFor='cvv'>CVV:</label>
+                                <input className='form-control' id='cvv' type='text'/>
+                            </div>
+                        </div>
 
-                                    <div className='col-lg-3 form-group'>
-                                        <label htmlFor='zip'>Zip Code:</label>
-                                        <input className='form-control' id='zip' type='text'/>
-                                    </div>
+                        <div className='row'>
+                            <label className='col-lg-12'>Expiration Date:</label>
 
-                                    <div className='col-lg-3 form-group'>
-                                        <label htmlFor='cvv'>CVV:</label>
-                                        <input className='form-control' id='cvv' type='text'/>
-                                    </div>
-                                </div>
+                            <div className='col-lg-8 form-group'>
+                                <select className='c-select form-control' id='exp-month'>
+                                    <option value='1'>1 - January</option>
+                                    <option value='2'>2 - February</option>
+                                    <option value='3'>3 - March</option>
+                                    <option value='4'>4 - April</option>
+                                    <option value='5'>5 - May</option>
+                                    <option value='6'>6 - June</option>
+                                    <option value='7'>7 - July</option>
+                                    <option value='8'>8 - August</option>
+                                    <option value='9'>9 - September</option>
+                                    <option value='10'>10 - October</option>
+                                    <option value='11'>11 - November</option>
+                                    <option value='12'>12 - December</option>
+                                </select>
+                            </div>
+                            <div className='col-lg-4 form-group'>
+                                <select className='c-select form-control' id='exp-year'>
+                                    <option value='2016'>2016</option>
+                                    <option value='2017'>2017</option>
+                                    <option value='2018'>2018</option>
+                                    <option value='2019'>2019</option>
+                                    <option value='2020'>2020</option>
+                                </select>
+                            </div>
+                        </div>
 
-                                <div className='row'>
-                                    <label className='col-lg-12'>Expiration Date:</label>
-
-                                    <div className='col-lg-8 form-group'>
-                                        <select className='c-select form-control' id='exp-month'>
-                                            <option value='1'>1 - January</option>
-                                            <option value='2'>2 - February</option>
-                                            <option value='3'>3 - March</option>
-                                            <option value='4'>4 - April</option>
-                                            <option value='5'>5 - May</option>
-                                            <option value='6'>6 - June</option>
-                                            <option value='7'>7 - July</option>
-                                            <option value='8'>8 - August</option>
-                                            <option value='9'>9 - September</option>
-                                            <option value='10'>10 - October</option>
-                                            <option value='11'>11 - November</option>
-                                            <option value='12'>12 - December</option>
-                                        </select>
-                                    </div>
-                                    <div className='col-lg-4 form-group'>
-                                        <select className='c-select form-control' id='exp-year'>
-                                            <option value='2016'>2016</option>
-                                            <option value='2017'>2017</option>
-                                            <option value='2018'>2018</option>
-                                            <option value='2019'>2019</option>
-                                            <option value='2020'>2020</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <hr className='mb-2'/>
-                                <button type='submit' className='btn btn-primary btn-lg'>Register</button>
+                        <hr className='mb-2'/>
+                        <button type='submit' className='btn btn-primary btn-lg'>Register</button>
                     </form>
                 </div>
             </div>
