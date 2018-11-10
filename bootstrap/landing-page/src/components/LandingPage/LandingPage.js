@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 import RegisterForm from "../RegisterForm/RegisterForm";
 
 const LandingPage = props => (
-    <Fragment>
+    <>
         <NavBar/>
         <MainSection/>
         <div className='container'>
@@ -23,7 +23,7 @@ const LandingPage = props => (
             <Footer/>
         </div>
         <RegisterForm/>
-    </Fragment>
+    </>
 );
 
 export default LandingPage;

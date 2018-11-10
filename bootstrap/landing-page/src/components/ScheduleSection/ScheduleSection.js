@@ -11,7 +11,7 @@ import './ScheduleSection.scss';
 
 
 const ScheduleSection = (props) => (
-    <Fragment>
+    <>
         <h1 className="display-4 text-center my-3 text-muted" id='schedule'>
             <strong>Schedule</strong>
         </h1>
@@ -180,7 +180,7 @@ const ScheduleSection = (props) => (
                 </div>
             </li>
         </ul>
-    </Fragment>
+    </>
 );
 
 export default ScheduleSection;

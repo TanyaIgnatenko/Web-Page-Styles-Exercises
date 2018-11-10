@@ -61,16 +61,7 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            [
-                                'env',
-                                {
-                                    targets: {
-                                        browsers: ['last 2 versions']
-                                    },
-                                    modules: false
-                                }
-                            ],
-                            'react'
+                            '@babel/preset-env', '@babel/preset-react'
                         ],
                         plugins: [
                             'react-hot-loader/babel',

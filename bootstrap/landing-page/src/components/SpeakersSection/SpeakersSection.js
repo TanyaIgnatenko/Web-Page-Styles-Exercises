@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 import AngieImage from '../../assets/images/angie.png';
 import NodestradamusImage from '../../assets/images/nodestradamus.png';
@@ -9,7 +9,7 @@ import JsonImage from '../../assets/images/json.png';
 
 
 const SpeakersSection = (props) => (
-    <Fragment>
+    <>
         <h1 className='display-4 text-center my-5 text-muted' id='speakers'>
             <strong>Speakers</strong>
         </h1>
@@ -90,7 +90,7 @@ const SpeakersSection = (props) => (
                 </div>
             </div>
         </div>
-    </Fragment>
+    </>
 );
 
 export default SpeakersSection;

@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 const SubscribeSection = (props) => (
-    <Fragment>
+    <>
         <hr/>
         <div className="row p-y-2 text-muted">
             <div className="col-md-6 col-xl-5">
@@ -22,7 +22,7 @@ const SubscribeSection = (props) => (
             </div>
         </div>
         <hr/>
-    </Fragment>
+    </>
 );
 
 export default SubscribeSection;
