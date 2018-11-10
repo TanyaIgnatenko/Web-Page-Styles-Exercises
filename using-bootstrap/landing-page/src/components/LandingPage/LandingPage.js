@@ -3,13 +3,14 @@ import React, {Fragment} from 'react';
 import NavBar from "../NavBar/NavBar";
 import MainSection from "../MainSection/MainSection";
 import AboutSection from "../AboutSection/AboutSection";
+import SpeakersSection from "../SpeakersSection/SpeakersSection";
 
 const LandingPage = props => (
     <Fragment>
         <NavBar/>
         <MainSection/>
         <AboutSection/>
-        {/*<SpeakersSection/>*/}
+        <SpeakersSection/>
         {/*<ScheduleSection/>*/}
         {/*<RegisterButton/>*/}
         {/*<SubscribeSection/>*/}
