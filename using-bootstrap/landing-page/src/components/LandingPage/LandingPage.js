@@ -4,6 +4,7 @@ import NavBar from "../NavBar/NavBar";
 import MainSection from "../MainSection/MainSection";
 import AboutSection from "../AboutSection/AboutSection";
 import SpeakersSection from "../SpeakersSection/SpeakersSection";
+import ScheduleSection from "../ScheduleSection/ScheduleSection";
 
 const LandingPage = props => (
     <Fragment>
@@ -11,7 +12,7 @@ const LandingPage = props => (
         <MainSection/>
         <AboutSection/>
         <SpeakersSection/>
-        {/*<ScheduleSection/>*/}
+        <ScheduleSection/>
         {/*<RegisterButton/>*/}
         {/*<SubscribeSection/>*/}
         {/*<Footer/>*/}
