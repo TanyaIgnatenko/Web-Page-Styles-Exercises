@@ -1,10 +1,12 @@
 import React from 'react';
 
+import PortlandImage from '../../assets/images/portland.jpg';
+
 const AboutSection = (props) => (
     <div className='row'>
         <div className='col-md-4 order-md-2'>
             <h3 className='mb-4' id='about'>About Full Stack Conf</h3>
-            <img className='mb-3 img-fluid img-rounded d-none d-sm-block' src='../../assets/images/portland.jpg'/>
+            <img className='mb-3 img-fluid img-rounded d-none d-sm-block' src={PortlandImage}/>
             <p>The beautiful city of Portland, Oregon will be the host city for Full Stack Conf!</p>
             <p>Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to
                 advance your career as a web developer.</p>

@@ -1,5 +1,13 @@
 import React, {Fragment} from 'react';
 
+import AngieImage from '../../assets/images/angie.png';
+import NodestradamusImage from '../../assets/images/nodestradamus.png';
+import GeoImage from '../../assets/images/geo.png';
+import EcmaImage from '../../assets/images/ecma.png';
+import JayImage from '../../assets/images/jay.png';
+import JsonImage from '../../assets/images/json.png';
+
+
 const SpeakersSection = (props) => (
     <Fragment>
         <h1 className='display-4 text-center my-5 text-muted' id='speakers'>
@@ -9,7 +17,7 @@ const SpeakersSection = (props) => (
             <div className='row'>
                 <div className="col-md-6 col-lg-4">
                     <div className="card mb-3">
-                        <img className="card-img-top img-fluid" src="../../images/angie.png" alt="Card image cap"/>
+                        <img className="card-img-top img-fluid" src={AngieImage} alt="Card image cap"/>
                         <div className="card-block p-3">
                             <h4 className="card-title">Angie McAngular</h4>
                             <p className="card-text">Angie is a web developer and teacher who is passionate about
@@ -21,7 +29,7 @@ const SpeakersSection = (props) => (
 
                 <div className="col-md-6 col-lg-4">
                     <div className="card mb-3">
-                        <img className="card-img-top img-fluid" src="../../images/nodestradamus.png"
+                        <img className="card-img-top img-fluid" src={NodestradamusImage}
                              alt="Card image cap"/>
                         <div className="card-block p-3">
                             <h4 className="card-title">NodeStradamus</h4>
@@ -35,7 +43,7 @@ const SpeakersSection = (props) => (
 
                 <div className="col-md-6 col-lg-4">
                     <div className="card mb-3">
-                        <img className="card-img-top img-fluid" src="../../images/geo.png" alt="Card image cap"/>
+                        <img className="card-img-top img-fluid" src={GeoImage} alt="Card image cap"/>
                         <div className="card-block p-3">
                             <h4 className="card-title">Geo "Lo" Cation</h4>
                             <p className="card-text">Geo is a JavaScript developer working on large-scale applications.
@@ -47,7 +55,7 @@ const SpeakersSection = (props) => (
 
                 <div className="col-md-6 col-lg-4">
                     <div className="card mb-3">
-                        <img className="card-img-top img-fluid" src="../../images/ecma.png" alt="Card image cap"/>
+                        <img className="card-img-top img-fluid" src={EcmaImage} alt="Card image cap"/>
                         <div className="card-block p-3">
                             <h4 className="card-title">Ecma Scriptnstuff</h4>
                             <p className="card-text">Ecma found her passion for computers and programming over 15 years
@@ -59,7 +67,7 @@ const SpeakersSection = (props) => (
 
                 <div className="col-md-6 col-lg-4">
                     <div className="card mb-3">
-                        <img className="card-img-top img-fluid" src="../../images/jay.png" alt="Card image cap"/>
+                        <img className="card-img-top img-fluid" src={JayImage} alt="Card image cap"/>
                         <div className="card-block p-3">
                             <h4 className="card-title">Jay Query</h4>
                             <p className="card-text">Jay is a developer, author of CSS: The Missing Manual,
@@ -71,7 +79,7 @@ const SpeakersSection = (props) => (
 
                 <div className="col-md-6 col-lg-4">
                     <div className="card mb-3">
-                        <img className="card-img-top img-fluid" src="../../images/json.png" alt="Card image cap"/>
+                        <img className="card-img-top img-fluid" src={JsonImage} alt="Card image cap"/>
                         <div className="card-block p-3">
                             <h4 className="card-title">Json Babel</h4>
                             <p className="card-text">All of his professional life, Json has worked with computers
