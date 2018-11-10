@@ -8,6 +8,7 @@ import ScheduleSection from "../ScheduleSection/ScheduleSection";
 import RegisterButton from "../RegisterButton/RegisterButton";
 import SubscribeSection from "../SubscribeSection/SubscribeSection";
 import Footer from "../Footer/Footer";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 const LandingPage = props => (
     <Fragment>
@@ -21,6 +22,7 @@ const LandingPage = props => (
             <SubscribeSection/>
             <Footer/>
         </div>
+        <RegisterForm/>
     </Fragment>
 );
 
