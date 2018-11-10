@@ -14,6 +14,8 @@ const MainSection = props => (
         <div className="btn-group btn-group-lg mt-2" role="group">
             <button type='button'
                     className='btn btn-primary'
+                    data-toggle='modal'
+                    data-target='#registerForm'
             >
                 Register now
             </button>
