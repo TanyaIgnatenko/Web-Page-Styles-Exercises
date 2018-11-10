@@ -5,13 +5,15 @@ const RegisterForm = (props) => (
         <div className='modal-dialog' role='document'>
             <div className='modal-content'>
                 <div className='modal-header bg-info'>
+                    <h4 className='modal-title text-light text-center'>
+                        Register for Full Stack Conf
+                    </h4>
                     <button type='button' className='close' data-dismiss='modal' aria-label='Close'>
                         <span aria-hidden='true'>&times;</span>
                     </button>
-                    <h4 className='modal-title'>Register for Full Stack Conf</h4>
                 </div>
                 <div className='modal-body'>
-                    <div className='alert alert-warning alert-dismissible fade in' role='alert'>
+                    <div className='alert alert-warning alert-dismissible fade show' role='alert'>
                         <button type='button' className='close' data-dismiss='alert' aria-label='Close'>
                             <span aria-hidden='true'>&times;</span>
                         </button>
