@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react';
 import NavBar from "../NavBar/NavBar";
+import MainSection from "../MainSection/MainSection";
 
 const LandingPage = props => (
     <Fragment>
         <NavBar/>
-        {/*<MainSection/>*/}
+        <MainSection/>
         {/*<AboutSection/>*/}
         {/*<SpeakersSection/>*/}
         {/*<ScheduleSection/>*/}
