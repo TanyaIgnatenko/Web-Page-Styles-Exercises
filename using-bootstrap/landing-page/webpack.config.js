@@ -88,7 +88,7 @@ const config = {
 
             {
                 test: /\.scss$/,
-                include: [path.resolve(srcFolder, 'components')],
+                include: [path.resolve(srcFolder)],
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
