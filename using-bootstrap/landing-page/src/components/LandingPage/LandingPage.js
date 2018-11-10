@@ -13,12 +13,14 @@ const LandingPage = props => (
     <Fragment>
         <NavBar/>
         <MainSection/>
-        <AboutSection/>
-        <SpeakersSection/>
-        <ScheduleSection/>
-        <RegisterButton/>
-        <SubscribeSection/>
-        <Footer/>
+        <div className='container'>
+            <AboutSection/>
+            <SpeakersSection/>
+            <ScheduleSection/>
+            <RegisterButton/>
+            <SubscribeSection/>
+            <Footer/>
+        </div>
     </Fragment>
 );
 
