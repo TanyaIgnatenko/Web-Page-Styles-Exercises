@@ -10,6 +10,13 @@ const NODE_ENV = process.env.NODE_ENV;
 const publicFolder = path.resolve(__dirname, 'public');
 const srcFolder = path.resolve(__dirname, 'src');
 
+
+const sassResources = [
+    'reset.scss'
+];
+
+const sassResourcesPathes = sassResources.map(filename => path.resolve(srcFolder, 'assets', 'scss', filename));
+
 const defaultStyleLoaders = [
     {
         loader: 'postcss-loader',
@@ -89,7 +96,14 @@ const config = {
                                 minimize: NODE_ENV === 'production'
                             }
                         },
-                        ...defaultStyleLoaders
+                        ...defaultStyleLoaders,
+                        'sass-loader',
+                        {
+                            loader: 'sass-resources-loader',
+                            options: {
+                                resources: sassResourcesPathes,
+                            },
+                        }
                     ]
                 })
             },
