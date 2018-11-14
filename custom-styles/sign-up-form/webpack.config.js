@@ -12,7 +12,9 @@ const srcFolder = path.resolve(__dirname, 'src');
 
 
 const sassResources = [
-    'reset.scss'
+    'reset.scss',
+    'font.scss',
+    'main.scss'
 ];
 
 const sassResourcesPathes = sassResources.map(filename => path.resolve(srcFolder, 'assets', 'scss', filename));
@@ -80,8 +82,13 @@ const config = {
             },
 
             {
-                test:  /\.(jpg|png|svg)$/,
+                test: /\.(jpg|png|svg)$/,
                 loader: 'file-loader?name=images/[name].[ext]'
+            },
+
+            {
+                test: /\.(ttf|woff|woff2)$/,
+                loader: 'file-loader?name=fonts/[name].[ext]'
             },
 
             {
