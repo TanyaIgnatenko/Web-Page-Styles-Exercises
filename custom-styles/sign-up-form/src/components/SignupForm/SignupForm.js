@@ -1,45 +1,37 @@
 import React from 'react';
-import classNames from 'classnames';
-
-import UserIcon from '@/assets/images/user.png';
-import EmailIcon from '@/assets/images/mail.png';
-import PasswordIcon from '@/assets/images/lock.png';
 
 import styles from './SignupForm.scss';
 
 function SignupForm() {
   return (
     <div className={styles.container}>
-      <h1>Create account</h1>
+      <h1 className={styles.title}>Create account</h1>
       <ul className={styles.socialMediaContainer}>
-        <li className={styles.googlePlusIcon}>
+        <li className={styles.icon}>
           <a href='#'>
             <i className='fab fa-google-plus-g' />
           </a>
         </li>
-        <li className={styles.facebookIcon}>
+        <li className={styles.icon}>
           <a href='#'>
             <i className='fab fa-facebook-f' />
           </a>
         </li>
-        <li className={styles.twitterIcon}>
+        <li className={styles.icon}>
           <a href='#'>
             <i className='fab fa-twitter' />
           </a>
         </li>
       </ul>
-      <p>Or use email for registration:</p>
-      <div className={classNames(styles.innerAddon, styles.leftAddon)}>
-        <img src={UserIcon} className={styles.inputIcon} />
-        <input type='text' placeholder='Name' />
-      </div>
-      <div className={classNames(styles.innerAddon, styles.leftAddon)}>
-        <img src={EmailIcon} className={styles.inputIcon} />
-        <input type='email' placeholder='Email' />
-      </div>
-      <div className={classNames(styles.innerAddon, styles.leftAddon)}>
-        <img src={PasswordIcon} className={styles.inputIcon} />
-        <input type='password' placeholder='Password' />
+      <p className={styles.otherWayTitle}>Or use email for registration:</p>
+      <div className={styles.inputsContainer}>
+        <input type='text' placeholder='Name' className={styles.name} />
+        <input type='email' placeholder='Email' className={styles.email} />
+        <input
+          type='password'
+          placeholder='Password'
+          className={styles.password}
+        />
       </div>
       <button className={styles.signupBtn}>SIGN UP</button>
     </div>

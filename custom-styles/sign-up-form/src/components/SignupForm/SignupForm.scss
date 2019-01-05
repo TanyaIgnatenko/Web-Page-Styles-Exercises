@@ -1,40 +1,55 @@
+// FOR DEBUGGING
+//body * {
+//  border: 1px solid red !important;
+//};
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.innerAddon {
-  position: relative;
+.title {
+    color:#3AAF9F;
+
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: Neuton, serif;
+    line-height: 1;
+
+    margin-bottom: 1.2rem;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+      margin-bottom: -1rem;
+    }
 }
 
-.inputIcon {
-  left: 15px;
-  top: 10px;
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  padding: 10px;
-  pointer-events: none;
-}
+.otherWayTitle {
+  color: #A5A9A8;
 
-.leftAddon input {
-  padding-left: 63px;
-}
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-family: Neuton, serif;
+  text-align: center;
+
+  margin-bottom: 1rem;
+};
 
 .socialMediaContainer {
-  padding: 0;
-  margin-bottom: 30px;
-  text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  li {
-    list-style: none;
-    margin-right: 10px;
+  margin-bottom: 1rem;
+
+  .icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,35 +60,91 @@
     border: 1px solid #d6d6d6;
     font-size: 1.3rem;
     transition: .3s;
-  }
 
-  li a {
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      background: darken(white, 6%);
+      cursor: pointer;
+    }
+
+    i {
+      color: dimgray;
+    }
+  }
+}
+
+.inputsContainer {
+  margin-bottom: 1rem;
+
+  input {
     color: dimgray;
+    background: #F4F8F7 no-repeat 10px center;
+    padding-left: 50px;
+
+    display: block;
+    width: 400px;
+    height: 60px;
+    border: none;
+    border-radius: 0;
+
+    font-size: 1.3rem;
+    font-weight: 100;
+    font-family: Neuton, serif;
+
+
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    &.name {
+      background-image: url('../../assets/images/user.svg');
+    }
+
+    &.email {
+      background-image: url('../../assets/images/mail.svg');
+    }
+
+    &.password {
+      background-image: url('../../assets/images/lock.svg');
+    }
   }
 }
 
-li.googlePlusIcon {
-  &:hover {
-    background: darken(white, 6%);
-    cursor: pointer;
-  }
-}
-
-li.facebookIcon {
-  &:hover {
-    background: darken(white, 6%);
-    cursor: pointer;
-  }
-}
-
-li.twitterIcon {
-  &:hover {
-    background: darken(white, 6%);
-    cursor: pointer;
-  }
-}
+//.innerAddon {
+//  position: relative;
+//}
+//
+//.inputIcon {
+//  left: 15px;
+//  top: 10px;
+//  width: 25px;
+//  height: 25px;
+//  position: absolute;
+//  padding: 10px;
+//  pointer-events: none;
+//}
+//
+//.leftAddon input {
+//  padding-left: 63px;
+//}
 
 .signupBtn {
   color: white;
   background-color: #3AAF9F;
+
+  width: 240px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+
+  font-family: Neuton, serif;
+  font-size: 1.4rem;
+  font-weight: 100;
+
+  cursor: pointer;
 }
+

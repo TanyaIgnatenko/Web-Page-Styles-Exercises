@@ -5,177 +5,174 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const NODE_ENV = process.env.NODE_ENV;
 
 const publicFolder = path.resolve(__dirname, 'public');
 const srcFolder = path.resolve(__dirname, 'src');
 
+const sassResources = ['reset.scss', 'font.scss', 'main.scss'];
 
-const sassResources = [
-    'reset.scss',
-    'font.scss',
-    'main.scss'
-];
-
-const sassResourcesPathes = sassResources.map(filename => path.resolve(srcFolder, 'assets', 'scss', filename));
+const sassResourcesPathes = sassResources.map(filename =>
+  path.resolve(srcFolder, 'assets', 'scss', filename),
+);
 
 const defaultStyleLoaders = [
-    {
-        loader: 'postcss-loader',
-        options: {
-            plugins: [
-                autoprefixer({
-                    browsers: ['Safari >= 9', 'last 2 versions']
-                })
-            ]
-        }
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [
+        autoprefixer({
+          browsers: ['Safari >= 9', 'last 2 versions'],
+        }),
+      ],
     },
-    'sass-loader'
+  },
+  'sass-loader',
 ];
 
 const config = {
-    mode: NODE_ENV,
+  mode: NODE_ENV,
 
-    devtool: NODE_ENV !== 'production' ? 'source-map' : false,
+  devtool: NODE_ENV !== 'production' ? 'source-map' : false,
 
-    entry: [
-        'babel-polyfill',
-        path.resolve(srcFolder, 'index.js')
-    ],
+  entry: ['babel-polyfill', path.resolve(srcFolder, 'index.js')],
 
-    output: {
-        publicPath: '/',
-        path: publicFolder,
-        filename: NODE_ENV !== 'production' ? '[hash].bundle.js' : '[hash].bundle.min.js'
+  output: {
+    publicPath: '/',
+    path: publicFolder,
+    filename:
+      NODE_ENV !== 'production' ? '[hash].bundle.js' : '[hash].bundle.min.js',
+  },
+
+  resolve: {
+    modules: [srcFolder, 'node_modules'],
+    extensions: ['.js', '.scss'],
+    alias: {
+      '@': srcFolder,
     },
+  },
 
-    resolve: {
-        modules: [srcFolder, 'node_modules'],
-        extensions: ['.js', '.scss'],
-        alias: {
-            '@': srcFolder,
+  devServer: {
+    port: 3001,
+    contentBase: publicFolder,
+    historyApiFallback: true,
+    hot: true,
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        include: [srcFolder],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              'react-hot-loader/babel',
+              'transform-object-rest-spread',
+              'transform-class-properties',
+            ],
+          },
         },
-    },
+      },
 
-    devServer: {
-        port: 3001,
-        contentBase: publicFolder,
-        historyApiFallback: true,
-        hot: true
-    },
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: 'file-loader?name=images/[name].[ext]',
+      },
 
-    module: {
-        rules: [
+      {
+        test: /\.(ttf|woff|woff2)$/,
+        loader: 'file-loader?name=fonts/[name].[ext]',
+      },
+
+      {
+        test: /\.scss$/,
+        include: [path.resolve(srcFolder)],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
             {
-                test: /\.jsx?$/,
-                include: [srcFolder],
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env', '@babel/preset-react'
-                        ],
-                        plugins: [
-                            'react-hot-loader/babel',
-                            'transform-object-rest-spread',
-                            'transform-class-properties'
-                        ]
-                    }
-                }
+              loader: 'css-loader',
+              options: {
+                minimize: NODE_ENV === 'production',
+                modules: true,
+                importLoaders: 2,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
             },
-
+            ...defaultStyleLoaders,
+            'sass-loader',
             {
-                test: /\.(jpg|png|svg)$/,
-                loader: 'file-loader?name=images/[name].[ext]'
+              loader: 'sass-resources-loader',
+              options: {
+                resources: sassResourcesPathes,
+              },
             },
-
-            {
-                test: /\.(ttf|woff|woff2)$/,
-                loader: 'file-loader?name=fonts/[name].[ext]'
-            },
-
-            {
-                test: /\.scss$/,
-                include: [path.resolve(srcFolder)],
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                minimize: NODE_ENV === 'production',
-                                modules: true,
-                                importLoaders: 2,
-                                localIdentName: '[name]__[local]___[hash:base64:5]',
-                            },
-                        },
-                        ...defaultStyleLoaders,
-                        'sass-loader',
-                        {
-                            loader: 'sass-resources-loader',
-                            options: {
-                                resources: sassResourcesPathes,
-                            },
-                        },
-                    ],
-                }),
-            },
-
-            {
-                test: /\.css$/,
-                exclude: [path.resolve(srcFolder, 'components')],
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                minimize: NODE_ENV === 'production'
-                            }
-                        },
-                        ...defaultStyleLoaders
-                    ]
-                })
-            }
-        ]
-    },
-
-    plugins: [
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: path.resolve(srcFolder, 'index.html')
+          ],
         }),
+      },
 
-        new CleanWebpackPlugin(publicFolder, {
-            root: __dirname,
-            verbose: true
+      {
+        test: /\.css$/,
+        exclude: [path.resolve(srcFolder, 'components')],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: NODE_ENV === 'production',
+              },
+            },
+            ...defaultStyleLoaders,
+          ],
         }),
-
-        new ExtractTextPlugin({
-            filename: NODE_ENV !== 'production' ? '[hash].styles.css' : '[hash].style.min.css',
-            allChunks: true
-        }),
-
-        new webpack.HotModuleReplacementPlugin()
+      },
     ],
+  },
 
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    compress: {
-                        warnings: false,
-                        drop_console: true,
-                        unused: true,
-                        dead_code: true
-                    },
-                    output: {
-                        comments: false
-                    }
-                }
-            })
-        ]
-    }
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.resolve(srcFolder, 'index.html'),
+    }),
+
+    new CleanWebpackPlugin(publicFolder, {
+      root: __dirname,
+      verbose: true,
+    }),
+
+    new ExtractTextPlugin({
+      filename:
+        NODE_ENV !== 'production'
+          ? '[hash].styles.css'
+          : '[hash].style.min.css',
+      allChunks: true,
+    }),
+
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            warnings: false,
+            drop_console: true,
+            unused: true,
+            dead_code: true,
+          },
+          output: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
 };
 
 module.exports = config;
