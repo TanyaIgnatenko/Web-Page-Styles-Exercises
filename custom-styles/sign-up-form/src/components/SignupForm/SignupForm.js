@@ -1,45 +1,46 @@
 import React from 'react';
-import UserIcon from '../../assets/images/user.png';
-import EmailIcon from '../../assets/images/mail.png';
-import PasswordIcon from '../../assets/images/lock.png';
+import classNames from 'classnames';
 
-import './SignupForm.scss';
+import UserIcon from '@/assets/images/user.png';
+import EmailIcon from '@/assets/images/mail.png';
+import PasswordIcon from '@/assets/images/lock.png';
 
+import styles from './SignupForm.scss';
 
 const SignupForm = (props) => (
-    <div className='signup-form__container'>
-        <h1 className={'signup-form__title'}>Create account</h1>
-                <ul className='signup-form__social-media-icons'>
-                    <li className='signup-form__google-icon'>
+    <div className={styles.container}>
+        <h1>Create account</h1>
+                <ul className={styles.socialMediaContainer}>
+                    <li className={styles.googlePlusIcon}>
                         <a href='#'>
                             <i className='fab fa-google-plus-g'></i>
                         </a>
                     </li>
-                    <li className='signup-form__facebook-icon'>
+                    <li className={styles.facebookIcon}>
                         <a href='#'>
                             <i className='fab fa-facebook-f'></i>
                         </a>
                     </li>
-                    <li className='signup-form__twitter-icon'>
+                    <li className={styles.twitterIcon}>
                         <a href='#'>
                             <i className='fab fa-twitter'></i>
                         </a>
                     </li>
                 </ul>
-        <p className='signup-form__paragraph'>Or use email for registration:</p>
-        <div className='inner-addon left-addon signup-form__input-container'>
-            <img src={UserIcon} className='input-icon'/>
+        <p>Or use email for registration:</p>
+        <div className={classNames(styles.innerAddon, styles.leftAddon)}>
+            <img src={UserIcon} className={styles.inputIcon}/>
             <input type='text' placeholder='Name'/>
         </div>
-        <div className='inner-addon left-addon signup-form__input-container'>
-            <img src={EmailIcon} className='input-icon'/>
+        <div className={classNames(styles.innerAddon, styles.leftAddon)}>
+            <img src={EmailIcon} className={styles.inputIcon}/>
             <input type='email' placeholder='Email'/>
         </div>
-        <div className='inner-addon left-addon signup-form__input-container'>
-            <img src={PasswordIcon} className='input-icon'/>
+        <div className={classNames(styles.innerAddon, styles.leftAddon)}>
+            <img src={PasswordIcon} className={styles.inputIcon}/>
             <input type='password' placeholder='Password'/>
         </div>
-        <button className='submit'>SIGN UP</button>
+        <button className={styles.signupBtn}>SIGN UP</button>
     </div>
 );
 

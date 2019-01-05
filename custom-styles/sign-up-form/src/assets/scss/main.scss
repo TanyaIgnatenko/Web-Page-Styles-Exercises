@@ -31,18 +31,14 @@ input[type=text], input[type=email], input[type=password] {
   color: dimgray;
 }
 
-button.submit {
+button {
   margin-top: 15px;
   width: 240px;
   height: 60px;
   border-radius: 30px;
-
   border: none;
-  color: white;
   font-size: 22px;
   font-weight: 100;
-  background-color: #3AAF9F;
-
   cursor: pointer;
 }
 

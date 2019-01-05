@@ -10,6 +10,7 @@
   "author": "Tatiana Ignatenko",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.6",
     "cross-env": "^5.2.0",
     "install": "^0.12.2",
     "npm": "^6.4.1",

@@ -51,7 +51,10 @@ const config = {
 
     resolve: {
         modules: [srcFolder, 'node_modules'],
-        extensions: ['.js', '.scss']
+        extensions: ['.js', '.scss'],
+        alias: {
+            '@': srcFolder,
+        },
     },
 
     devServer: {
@@ -100,8 +103,11 @@ const config = {
                         {
                             loader: 'css-loader',
                             options: {
-                                minimize: NODE_ENV === 'production'
-                            }
+                                minimize: NODE_ENV === 'production',
+                                modules: true,
+                                importLoaders: 2,
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
+                            },
                         },
                         ...defaultStyleLoaders,
                         'sass-loader',
@@ -110,9 +116,9 @@ const config = {
                             options: {
                                 resources: sassResourcesPathes,
                             },
-                        }
-                    ]
-                })
+                        },
+                    ],
+                }),
             },
 
             {
