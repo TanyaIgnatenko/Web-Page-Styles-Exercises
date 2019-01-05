@@ -1,10 +1,9 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 
-import SignupForm from "./components/SignupForm/SignupForm";
+import App from './components/App/App';
 
 import './index.scss';
 
-
 const signupFormNode = document.getElementById('sign-up-form-node');
-render(<SignupForm/>, signupFormNode);
+render(<App />, signupFormNode);
