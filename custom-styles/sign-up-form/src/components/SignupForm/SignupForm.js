@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import styles from './SignupForm.scss';
 
-function SignupForm() {
+function SignupForm(props) {
   return (
-    <div className={styles.container}>
+    <div className={classNames(styles.container, props.className)}>
       <h1 className={styles.title}>Create account</h1>
       <ul className={styles.socialMediaContainer}>
         <li className={styles.icon}>
@@ -37,5 +39,9 @@ function SignupForm() {
     </div>
   );
 }
+
+SignupForm.propTypes = {
+  className: PropTypes.string.isRequired,
+};
 
 export default SignupForm;

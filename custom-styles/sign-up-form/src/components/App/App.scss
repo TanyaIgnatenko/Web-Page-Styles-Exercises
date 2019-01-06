@@ -1,3 +1,21 @@
 .container {
   display: flex;
+
+  .translator, .form {
+    transition: transform 2s;
+  }
+
+  .translator {
+    z-index: 1;
+
+    &.reordered {
+      transform: translateX(65vw)
+    }
+  }
+
+  .form.reordered {
+    transform: translateX(-35vw)
+  }
 }
+
+
