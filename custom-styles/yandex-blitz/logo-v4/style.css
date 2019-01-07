@@ -1,0 +1,33 @@
+div {
+  width: 223px;
+  height: 142px;
+  position: relative;
+  background: #FFDB4D;
+}
+
+div::before {
+  content: '';
+  position: absolute;
+  top:  5px;
+  left: 5px;
+  width: calc(100% - 13px);
+  height: calc(100% - 13px);
+  border: 0.015in dashed rgba(0, 0, 0, .3) ;
+  outline: 0.015in dashed rgba(255, 255, 255, .5);
+}
+
+div::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background:
+          radial-gradient(circle at 20% 50%, white 7px, transparent 7px) left,
+          radial-gradient(circle at 0 0, white 11px, transparent 11px) top left,
+          radial-gradient(circle at 100% 0, white 11px, transparent 11px) top right,
+          radial-gradient(circle at 100% 100%, white 11px, transparent 11px) bottom right,
+          radial-gradient(circle at 0 100%, white 11px, transparent 11px) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
